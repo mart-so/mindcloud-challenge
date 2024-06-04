@@ -43,13 +43,13 @@
   height: 24px;
   text-align: center;
   background-color: #f6f8f9;
-  border-radius: 31%;
-  font-size: 11px;
-  padding: 5px;
-
+  border-radius: 10%;
+  margin-right: 8px;
 }
 
-
+.bi-list-ul{
+  margin: 8px;
+}
 
 .step-name {
   margin-left: 10px;
@@ -82,10 +82,21 @@
 
 .paper {
   background-color: #fcfdfd;
-  border: 2px solid #f8f9fa; /* Agregar borde de 2px de color #f8f9fa */
-  margin: 20px; /* Poner un margen de 20px */
+  border: 2px solid #f8f9fa; 
+  margin: 20px; 
+  padding-right: 30px;
 }
 
 .app-container {
   max-width: 80%;
+}
+
+.custom-warning {
+  color: #fdf3e3;
+  background-color: #e3a654;
+  border-radius: 50%;
+  padding: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

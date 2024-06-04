@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "./Steps.css"; // Importa el archivo CSS
+import "./Steps.css"; 
 
-// Step Component
 const Step = ({ step, isActive, onClick }) => {
   return (
     <div className="step-wrapper position-relative">
       <div
-        className={`step-container ${isActive ? "active" : ""} ${
-          step.hasError ? "error" : ""
+        className={`step-container ${
+          isActive ? "active" : ""
         } d-flex align-items-center p-1 m-3 mb-3`}
         onClick={onClick}
       >
@@ -23,24 +22,23 @@ const Step = ({ step, isActive, onClick }) => {
 
         {step.cardIcon > 0 && (
           <div className="list-number">
-            <i className="bi bi-card-list"> {step.cardIcon}</i>
+            <i className="bi bi-list-ul"> {step.cardIcon}</i>
           </div>
         )}
       </div>
 
-      {step.hasError && (
-        <i className="bi bi-exclamation-circle-fill text-warning m-5 position-absolute top-50 end-0 translate-middle-y"></i>
+      {step.hasWarning && (
+        <i className="bi bi-exclamation-circle-fill custom-warning position-absolute  translate-middle-y"></i>
       )}
     </div>
   );
 };
 
-// Define PropTypes for Step
 Step.propTypes = {
   step: PropTypes.shape({
     name: PropTypes.string.isRequired,
     stepNumber: PropTypes.number.isRequired,
-    hasError: PropTypes.bool.isRequired,
+    hasWarning: PropTypes.bool.isRequired,
     icon: PropTypes.string.isRequired,
     cardIcon: PropTypes.bool.isRequired,
   }).isRequired,
@@ -48,7 +46,6 @@ Step.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-// Main Component
 const Steps = ({ stepsData }) => {
   const [activeStep, setActiveStep] = useState(null);
 
@@ -70,38 +67,35 @@ const Steps = ({ stepsData }) => {
   );
 };
 
-// Define PropTypes for Steps
 Steps.propTypes = {
   stepsData: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       stepNumber: PropTypes.number.isRequired,
-      hasError: PropTypes.bool.isRequired,
+      hasWarning: PropTypes.bool.isRequired,
       icon: PropTypes.string.isRequired,
       cardIcon: PropTypes.bool.isRequired,
     })
   ).isRequired,
 };
 
-// Sample steps data
 const stepsData = [
   {
     name: "Merge Employees with Demographics",
     stepNumber: 11,
-    hasError: false,
+    hasWarning: false,
     icon: "bi-square",
     cardIcon: 100,
   },
   {
     name: "Update User",
     stepNumber: 12,
-    hasError: true,
+    hasWarning: true,
     icon: "bi-circle",
     cardIcon: 0,
   },
 ];
 
-// App Component
 const App = () => {
   return (
     <div className="app-container">
