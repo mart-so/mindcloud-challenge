@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "./Steps.css"; 
+import "./Steps.css";
 
 const Step = ({ step, isActive, onClick }) => {
   return (
@@ -10,10 +10,10 @@ const Step = ({ step, isActive, onClick }) => {
       <div
         className={`step-container ${
           isActive ? "active" : ""
-        } d-flex align-items-center p-1 m-3 mb-3`}
+        } d-flex align-items-center p-3 m-3 mb-3`}
         onClick={onClick}
       >
-        <i className={`bi ${step.icon}`} style={{ fontSize: "1.5rem" }}></i>
+        <i className={`bi ${step.icon}`}></i>
         <span className="step-number ms-3 d-flex align-items-center justify-content-center">
           {step.stepNumber}
         </span>
@@ -84,14 +84,14 @@ const stepsData = [
     name: "Merge Employees with Demographics",
     stepNumber: 11,
     hasWarning: false,
-    icon: "bi-square",
+    icon: "bi-arrows-angle-contract",
     cardIcon: 100,
   },
   {
     name: "Update User",
     stepNumber: 12,
     hasWarning: true,
-    icon: "bi-circle",
+    icon: "bi-person-circle",
     cardIcon: 0,
   },
 ];
