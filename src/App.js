@@ -15,15 +15,19 @@ const Step = ({ step, isActive, onClick }) => {
         onClick={onClick}
       >
         <i className={`bi ${step.icon}`} style={{ fontSize: "1.5rem" }}></i>
-        <span className="step-number ms-3 d-flex align-items-center justify-content-center">{step.stepNumber}</span>
-        <span className="step-name ms-3 flex-grow-1">{step.name}</span>
-        {step.showCardIcon && (
+        <span className="step-number ms-3 d-flex align-items-center justify-content-center">
+          {step.stepNumber}
+        </span>
 
-          <i className="bi bi-card-list ms-3">
-            {step.showCardIconNumber}
-          </i>
+        <span className="step-name ms-3 flex-grow-1 ">{step.name}</span>
+
+        {step.cardIcon > 0 && (
+          <div className="list-number">
+            <i className="bi bi-card-list"> {step.cardIcon}</i>
+          </div>
         )}
       </div>
+
       {step.hasError && (
         <i className="bi bi-exclamation-circle-fill text-warning m-5 position-absolute top-50 end-0 translate-middle-y"></i>
       )}
@@ -38,7 +42,7 @@ Step.propTypes = {
     stepNumber: PropTypes.number.isRequired,
     hasError: PropTypes.bool.isRequired,
     icon: PropTypes.string.isRequired,
-    showCardIcon: PropTypes.bool.isRequired,
+    cardIcon: PropTypes.bool.isRequired,
   }).isRequired,
   isActive: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
@@ -57,9 +61,9 @@ const Steps = ({ stepsData }) => {
             isActive={activeStep === index}
             onClick={() => setActiveStep(index)}
           />
-          {index < stepsData.length - 1 && (
-            <div className="line"></div>
-          )}
+          {index < stepsData.length - 1 && <div className="lineV"></div>}
+
+          {index < stepsData.length - 1 && <div className="lineH"></div>}
         </React.Fragment>
       ))}
     </div>
@@ -74,7 +78,7 @@ Steps.propTypes = {
       stepNumber: PropTypes.number.isRequired,
       hasError: PropTypes.bool.isRequired,
       icon: PropTypes.string.isRequired,
-      showCardIcon: PropTypes.bool.isRequired,
+      cardIcon: PropTypes.bool.isRequired,
     })
   ).isRequired,
 };
@@ -86,23 +90,25 @@ const stepsData = [
     stepNumber: 11,
     hasError: false,
     icon: "bi-square",
-    showCardIcon: false,
+    cardIcon: 100,
   },
-  { 
-    name: "Update User", 
-    stepNumber: 12, 
-    hasError: true, 
-    icon: "bi-circle", 
-    showCardIcon: true 
+  {
+    name: "Update User",
+    stepNumber: 12,
+    hasError: true,
+    icon: "bi-circle",
+    cardIcon: 0,
   },
 ];
 
 // App Component
 const App = () => {
   return (
-    <div className="app">
+    <div className="app-container">
       <h1 className="text-center my-4">Steps</h1>
-      <Steps stepsData={stepsData} />
+      <div className="paper">
+        <Steps stepsData={stepsData} />
+      </div>
     </div>
   );
 };

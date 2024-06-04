@@ -31,24 +31,46 @@
   height: 24px;
   text-align: center;
   font-weight: 300;
-  background-color: #d3d3d387;
-  border-radius: 50%;
-  font-size: 9px;
+  background-color: #f6f8f9;
+  border-radius: 31%;
+  font-size: 11px;
   padding: 5px;
   color: #7a7676;
 }
+
+.list-number {
+  min-width: 24px;
+  height: 24px;
+  text-align: center;
+  background-color: #f6f8f9;
+  border-radius: 31%;
+  font-size: 11px;
+  padding: 5px;
+
+}
+
+
 
 .step-name {
   margin-left: 10px;
   flex-grow: 1;
 }
 
-.line {
-  height: 18px;
-  width: 4px;
-  background-color: lightgray;
-  margin: -16px 0;
+.lineV {
+  height: 44px;
+  width: 6px;
+  background-color: #eff3f4;
+  margin: -16px;
+  margin-bottom: -40px;
   margin-left: 33px;
+}
+
+.lineH {
+  height: 2px;
+  width: 80%;
+  background-color: #f6f8f9;
+  margin-top: 12px;
+  margin-left: 93px;
 }
 
 .bi-exclamation-circle-fill {
@@ -56,4 +78,14 @@
   top: 50%;
   right: -1.5rem;
   transform: translateY(-50%);
+}
+
+.paper {
+  background-color: #fcfdfd;
+  border: 2px solid #f8f9fa; /* Agregar borde de 2px de color #f8f9fa */
+  margin: 20px; /* Poner un margen de 20px */
+}
+
+.app-container {
+  max-width: 80%;
 }
