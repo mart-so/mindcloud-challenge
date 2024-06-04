@@ -1,0 +1,59 @@
+.step-wrapper {
+  position: relative;
+}
+
+.step-container {
+  border: 1px solid lightgray;
+  cursor: pointer;
+  background-color: #fff;
+  transition: background-color 0.3s, box-shadow 0.3s, border 0.3s;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.step-container:hover {
+  background-color: #f0f0f0;
+}
+
+.step-container.active {
+  border: 2px solid #757ed7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step-container.error {
+  background-color: #ffe6e6;
+}
+
+.step-number {
+  min-width: 24px;
+  height: 24px;
+  text-align: center;
+  font-weight: 300;
+  background-color: #d3d3d387;
+  border-radius: 50%;
+  font-size: 9px;
+  padding: 5px;
+  color: #7a7676;
+}
+
+.step-name {
+  margin-left: 10px;
+  flex-grow: 1;
+}
+
+.line {
+  height: 18px;
+  width: 4px;
+  background-color: lightgray;
+  margin: -16px 0;
+  margin-left: 33px;
+}
+
+.bi-exclamation-circle-fill {
+  position: absolute;
+  top: 50%;
+  right: -1.5rem;
+  transform: translateY(-50%);
+}
